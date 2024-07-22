@@ -1,69 +1,55 @@
 import { Suspense } from "react";
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { listRegions } from "@lib/data";
 import LocalizedClientLink from "@modules/common/components/localized-client-link";
 import CartButton from "@modules/layout/components/cart-button";
 import SideMenu from "@modules/layout/components/side-menu";
+import logo from "@modules/layout/templates/nav/TLB_Logo.svg";
+import Image from "next/image";
+import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
+import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
+import { faUser } from "@fortawesome/free-solid-svg-icons";
 
 export default async function Nav() {
   const regions = await listRegions().then((regions) => regions);
 
   return (
-    <div className="sticky top-0 inset-x-0 z-50 group">
-      <header className="relative h-16 mx-auto border-b duration-200 bg-white border-ui-border-base">
-        <nav className="content-container txt-xsmall-plus text-ui-fg-subtle flex items-center justify-between w-full h-full text-small-regular">
-          <div className="flex-1 basis-0 h-full flex items-center">
-            <div className="h-full">
-              <SideMenu regions={regions} />
-            </div>
+    <div className="sticky inset-x-0 top-0 z-50 bg-white-0 group">
+
+      <div className="container px-4 mx-auto">
+
+        <div className="flex items-center justify-between ">
+
+          <div className="flex items-center space-x-8 mt-23">
+            <a href="#" className="font-semibold ml-80 text-16">All Stores</a>
+            <a href="#" className="ml-24 font-semibold text-16">About</a>
+          </div>
+          <Image className="items-center " src={logo} alt="logo" height={80.51} />
+          <div className="flex items-center space-x-8">
+            <a href="#" className="text-black">
+              <FontAwesomeIcon icon={faMagnifyingGlass} />
+            </a>
+            <a href="#" className="text-black">
+              <FontAwesomeIcon icon={faUser} />            </a>
+            <a href="#" className="text-black">
+              <FontAwesomeIcon icon={faCartShopping} />            </a>
           </div>
 
-          <div className="flex items-center h-full">
-            <LocalizedClientLink
-              href="/"
-              className="txt-compact-xlarge-plus hover:text-ui-fg-base uppercase"
-              data-testid="nav-store-link"
-            >
-              Mercur Storefront Starter
-            </LocalizedClientLink>
-          </div>
 
-          <div className="flex items-center gap-x-6 h-full flex-1 basis-0 justify-end">
-            <div className="hidden small:flex items-center gap-x-6 h-full">
-              {process.env.FEATURE_SEARCH_ENABLED && (
-                <LocalizedClientLink
-                  className="hover:text-ui-fg-base"
-                  href="/search"
-                  scroll={false}
-                  data-testid="nav-search-link"
-                >
-                  Search
-                </LocalizedClientLink>
-              )}
-              <LocalizedClientLink
-                className="hover:text-ui-fg-base"
-                href="/account"
-                data-testid="nav-account-link"
-              >
-                Account
-              </LocalizedClientLink>
-            </div>
-            <Suspense
-              fallback={
-                <LocalizedClientLink
-                  className="hover:text-ui-fg-base flex gap-2"
-                  href="/cart"
-                  data-testid="nav-cart-link"
-                >
-                  Cart (0)
-                </LocalizedClientLink>
-              }
-            >
-              <CartButton />
-            </Suspense>
-          </div>
-        </nav>
-      </header>
+
+        </div>
+        <div className="flex mb-22 space-x-26 ">
+          <a href="#" className="font-semibold hover:underline ml-240 text-16">New Arrivals</a>
+          <a href="#" className="font-semibold hover:underline text-16">Best-Sellers</a>
+          <a href="#" className="font-semibold hover:underline text-16">Clothing</a>
+          <a href="#" className="font-semibold hover:underline text-16">Health & Beauty</a>
+          <a href="#" className="font-semibold hover:underline text-16">Home Décor</a>
+          <a href="#" className="font-semibold hover:underline text-16">Arts & Crafts</a>
+          <a href="#" className="font-semibold hover:underline text-16">Gifts & Specialty Items</a>
+          <a href="#" className="font-semibold hover:underline text-16">Shoes & Bags</a>
+          <a href="#" className="text-red-500 hover:underline">Sale</a>
+        </div>
+      </div>
     </div>
   );
-}
+};

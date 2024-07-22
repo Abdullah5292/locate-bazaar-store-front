@@ -18,7 +18,48 @@ module.exports = {
         bg: "background-color",
         display: "display opacity",
         visibility: "visibility",
-        padding: "padding-top padding-right padding-bottom padding-left",
+        padding: "padding-top padding-right padding-bottom padding-left"
+      },
+      fontSize: {
+        '17px': '17px',
+        '16px': '16px',
+      },
+
+      padding: {
+        '66': '66px',
+        '70': '70px',
+        '80': '80px',
+        '90': '90px',
+
+      },
+      height: {
+        '305': '305px',
+        '30': '30px',
+      },
+      width: {
+        '388': '388px',
+        '52': '52px',
+      },
+      margin: {
+        '92': '92px',
+        '157': '157px',
+        '96': '96px',
+        '85': '85px',
+        '43': '43px',
+        '47': '47px',
+        '23': '23px',
+        '22': '22px',
+        '80': '80px',
+        '24': '24px',
+        '240': '240px',
+
+      },
+      spacing: {
+        '29': '29px',
+        '13': '13px',
+        '128': '128px',
+        '26': '26px',
+
       },
       colors: {
         grey: {
@@ -33,6 +74,13 @@ module.exports = {
           70: "#374151",
           80: "#1F2937",
           90: "#111827",
+          140: "#191919",
+        },
+        white: {
+          0: "#FFFFFF",
+          10: "#F3F4F6",
+          20: "#E5E7EB",
+          30: "#FAF9F6",
         },
       },
       borderRadius: {
@@ -57,6 +105,7 @@ module.exports = {
       },
       fontSize: {
         "3xl": "2rem",
+
       },
       fontFamily: {
         sans: [
